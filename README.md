@@ -6,3 +6,6 @@
 $ yarn install
 $ yarn dev
 ```
+
+
+http://localhost:3003/
