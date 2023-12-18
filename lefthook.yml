@@ -1,0 +1,12 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: '*.{js,ts,jsx,tsx}'
+      run: >
+        git add {staged_files}
+    format:
+      glob: '{*.js,*.ts,*tsx,*.json}'
+      run: >
+        npx prettier --write {staged_files} &&
+        git add {staged_files}
