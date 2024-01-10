@@ -7,7 +7,6 @@ const newUrqlClient = ({ isServer, url }: { isServer: boolean; url: string }) =>
     fetch,
     url,
     exchanges: [cacheExchange, devtoolsExchange, fetchExchange],
-    requestPolicy: 'network-only',
     fetchOptions: {
       headers: {
         Accept: '*/*',
