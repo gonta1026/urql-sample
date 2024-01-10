@@ -1,3 +1,4 @@
+import { useQuery } from 'graphql-hooks'
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 import React from 'react'
@@ -10,7 +11,21 @@ type ServerSideProps = {
   films: Film[]
 }
 
+const PokemonsQuery = `
+  query {
+    pokemons(limit: 10) {
+      results {
+        id
+        name
+      }
+    }
+  }
+`
+
 export default function TopPage({ films }: ServerSideProps) {
+  const { data } = useQuery(PokemonsQuery)
+  console.log(data)
+
   return (
     <Layout>
       <div style={{ width: '200px', margin: '20px auto' }}>
